@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BISJ Onboarding Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .panel {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            min-width: 400px;
+            max-width: 600px;
+        }
+        .panel-header {
+            background-color: #000080;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        .panel-body {
+            padding: 15px;
+            background-color: #ffffff;
+            align-self: center;
+        }
+        .panel-footer {
+            background-color: #000080;
+            padding: 10px 15px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .top_right_image{
+            position: fixed;
+            width: 150px;
+            height: auto;
+            z-index: 1000;
+
+            top: 0; left: 0;
+
+        }
+    </style>
+</head>
+<body>
+<img src = "BISJ_Logo.png"  alt="BISJ Logo" class="top_right_image">
+<div class="panel">
+    <div class="panel-header" style="color: lightgrey">BISJ Onboarding Login</div>
+    <div class="panel-body">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your name">
+        <br><br>
+        <label for="password">Password:  </label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <br><br>
+        <button type="submit" id="submit" >Submit</button>
+
+    </div>
+<!--    <div class="panel-footer"style="color: lightgrey">Panel Footer Text</div> -->
+</div>
+</body>
+</html>
