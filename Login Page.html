@@ -20,43 +20,43 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             min-width: 400px;
             max-width: 600px;
+            background-color: #ffffff;
+            overflow: hidden;
         }
         .panel-header {
             background-color: #000080;
-            padding: 10px 15px;
+            padding: 12px 15px;
             font-weight: bold;
-            border-bottom: 1px solid #ddd;
+            color: #ffffff;
         }
         .panel-body {
-            padding: 15px;
-            background-color: #ffffff;
-            align-self: center;
+            padding: 25px;
+            display: flex;
+            justify-content: center;
         }
-        .panel-footer {
-            background-color: #000080;
-            padding: 10px 15px;
-            border-top: 1px solid #ddd;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .top_left_image{
+        .top_left_image {
             position: fixed;
             width: 150px;
             height: auto;
             z-index: 1000;
-            top: 0; left: 0;
+            top: 10px;
+            left: 10px;
         }
     </style>
-    <meta name ="google-signin-client_id" content="80289098095-q7vquk7tgc38o1fudf97utn4cjh20kk0.apps.googleusercontent.com">
-    <script src = "https://apis.google.com/js/api.js"></script>
-    <script src ="Login Page.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="Login Page.js"></script>
 </head>
 <body>
-<img src = "BISJ_Logo.png"  alt="BISJ Logo" class="top_left_image">
+<img src="BISJ_Logo.png" alt="BISJ Logo" class="top_left_image">
+
 <div class="panel">
-    <div class="panel-header" style="color: lightgrey">BISJ Onboarding Login</div>
+    <div class="panel-header">BISJ Onboarding Login</div>
     <div class="panel-body">
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div id="g_id_onload"
+             data-client_id="80289098095-q7vquk7tgc38o1fudf97utn4cjh20kk0.apps.googleusercontent.com"
+             data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"></div>
     </div>
 </div>
 </body>

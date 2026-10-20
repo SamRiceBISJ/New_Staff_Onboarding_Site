@@ -1,14 +1,20 @@
-gapi.load('auth2', function(){
-    auth2 = gapi.auth2.init()
-});
+function handleCredentialResponse(response) {
+    const userPayload = decodeJwtResponse(response.credential);
 
-signInButton.addEventListener('click', function(){
-    onSignIn();
-})
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    console.log("ID (sub): " + userPayload.sub);
+    console.log("Full Name: " + userPayload.name);
+    console.log("Email: " + userPayload.email);
+    console.log("Image URL: " + userPayload.picture);
+}
+
+function decodeJwtResponse(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+        window.atob(base64)
+            .split('')
+            .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+            .join('')
+    );
+    return JSON.parse(jsonPayload);
 }
