@@ -1,6 +1,14 @@
-submit.addEventListener('click', function(e) {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    console.log(username, password);
-})
+gapi.load('auth2', function(){
+    auth2 = gapi.auth2.init()
+});
 
+signInButton.addEventListener('click', function(){
+    onSignIn();
+})
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
